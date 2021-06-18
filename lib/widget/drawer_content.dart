@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:test_food_app/screens/login.dart';
 
 class DrawerContents extends StatelessWidget {
   const DrawerContents({
@@ -39,26 +40,29 @@ class DrawerContents extends StatelessWidget {
                     bottomLeft: Radius.circular(20),
                     bottomRight: Radius.circular(20))),
           ),
-          Container(
-            padding: EdgeInsets.all(20),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Icon(
-                  Icons.logout,
-                  color: Colors.grey,
-                ),
-                Text(
-                  "Logout",
-                  style: TextStyle(color: Colors.grey),
-                )
-              ],
+          FlatButton(
+            onPressed: ()=>Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LoginPage())),
+            child: Container(
+              padding: EdgeInsets.all(20),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  IconButton(
+                    icon:Icon(Icons.logout,
+                      color: Colors.grey,),onPressed: ()=>Navigator.of(context).push(MaterialPageRoute(builder: (context)=>LoginPage())),
+                  ),
+                  Text(
+                    "Logout",
+                    style: TextStyle(color: Colors.grey),
+                  )
+                ],
+              ),
             ),
           )
         ],
       ),
       width: 340,
-      color: Colors.yellow,
+      color: Colors.white,
     );
   }
 }
