@@ -44,8 +44,9 @@ class _HomePageState extends State<HomePage>
                         actions: [
                           Padding(
                             padding: const EdgeInsets.all(10.0),
-                            child: ChangeNotifierProvider<Cart>(
+                            child: ChangeNotifierProvider(
                               create: (context) => Cart(),
+                              builder: (context, child) => CartIcon(),
                               child: CartIcon(),
                             ),
                           )

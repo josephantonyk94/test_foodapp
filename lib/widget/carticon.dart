@@ -5,7 +5,7 @@ import 'package:test_food_app/screens/order_summery.dart';
 
 class CartIcon extends StatelessWidget {
   const CartIcon({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -26,9 +26,9 @@ class CartIcon extends StatelessWidget {
         child: Container(
           height: 20,
           width: 20,
-          child: Center(
-            child: Text(
-              context.watch<Cart>().cartLength.toString(),
+          child: Consumer<Cart>(
+            builder: (cntxt, val, ___) => Text(
+              val.cartList.length.toString(),
             ),
           ),
           decoration: BoxDecoration(

@@ -4,7 +4,7 @@ import 'package:test_food_app/model/api/restaurent.dart';
 import 'package:test_food_app/model/cart.dart';
 
 class DishCard extends StatelessWidget {
-  const DishCard({Key key, @required this.index, this.tableMenu})
+  const DishCard({Key? key, required this.index, required this.tableMenu})
       : super(key: key);
 
   final int index;

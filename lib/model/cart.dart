@@ -5,13 +5,6 @@ import 'package:flutter/cupertino.dart';
 import 'api/restaurent.dart';
 
 class Cart extends ChangeNotifier {
-  ///
-  static Cart _instance;
-  Cart._();
-  static Cart get getInstance => _instance ??= Cart._();
-  factory Cart() {
-    return _instance;
-  }
   List<CategoryDish> _cartList = [];
   UnmodifiableListView<CategoryDish> get cartList =>
       UnmodifiableListView(_cartList);

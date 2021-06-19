@@ -12,14 +12,14 @@ String restaurantToJson(List<Restaurant> data) =>
 
 class Restaurant {
   Restaurant({
-    this.restaurantId,
-    this.restaurantName,
-    this.restaurantImage,
-    this.tableId,
-    this.tableName,
-    this.branchName,
-    this.nexturl,
-    this.tableMenuList,
+    required this.restaurantId,
+    required this.restaurantName,
+    required this.restaurantImage,
+    required this.tableId,
+    required this.tableName,
+    required this.branchName,
+    required this.nexturl,
+    required this.tableMenuList,
   });
 
   String restaurantId;
@@ -58,11 +58,11 @@ class Restaurant {
 
 class TableMenu {
   TableMenu({
-    this.menuCategory,
-    this.menuCategoryId,
-    this.menuCategoryImage,
-    this.nexturl,
-    this.categoryDishes,
+    required this.menuCategory,
+    required this.menuCategoryId,
+    required this.menuCategoryImage,
+    required this.nexturl,
+    required this.categoryDishes,
   });
 
   String menuCategory;
@@ -92,11 +92,11 @@ class TableMenu {
 
 class AddonCat {
   AddonCat({
-    this.addonCategory,
-    this.addonCategoryId,
-    this.addonSelection,
-    this.nexturl,
-    this.addons,
+    required this.addonCategory,
+    required this.addonCategoryId,
+    required this.addonSelection,
+    required this.nexturl,
+    required this.addons,
   });
 
   String addonCategory;
@@ -125,18 +125,18 @@ class AddonCat {
 
 class CategoryDish {
   CategoryDish(
-      {this.dishId,
-      this.dishName,
-      this.dishPrice,
-      this.dishImage,
-      this.dishCurrency,
-      this.dishCalories,
-      this.dishDescription,
-      this.dishAvailability,
-      this.dishType,
-      this.nexturl,
-      this.addonCat,
-      this.itemSelected});
+      {required this.dishId,
+      required this.dishName,
+      required this.dishPrice,
+      required this.dishImage,
+      required this.dishCurrency,
+      required this.dishCalories,
+      required this.dishDescription,
+      required this.dishAvailability,
+      required this.dishType,
+      required this.nexturl,
+      required this.addonCat,
+      required this.itemSelected});
 
   String dishId;
   String dishName;
@@ -156,14 +156,14 @@ class CategoryDish {
       dishName: json["dish_name"],
       dishPrice: json["dish_price"].toDouble(),
       dishImage: json["dish_image"],
-      dishCurrency: dishCurrencyValues.map[json["dish_currency"]],
+      dishCurrency: dishCurrencyValues.map[json["dish_currency"]]!,
       dishCalories: json["dish_calories"],
       dishDescription: json["dish_description"],
       dishAvailability: json["dish_Availability"],
       dishType: json["dish_Type"],
-      nexturl: json["nexturl"] == null ? null : json["nexturl"],
+      nexturl: json["nexturl"] == null ? "url_null" : json["nexturl"],
       addonCat: json["addonCat"] == null
-          ? null
+          ? []
           : List<AddonCat>.from(
               json["addonCat"].map((x) => AddonCat.fromJson(x))),
       itemSelected: 0);
@@ -191,7 +191,7 @@ final dishCurrencyValues = EnumValues({"SAR": DishCurrency.SAR});
 
 class EnumValues<T> {
   Map<String, T> map;
-  Map<T, String> reverseMap;
+  Map<T, String> reverseMap = {};
 
   EnumValues(this.map);
 
