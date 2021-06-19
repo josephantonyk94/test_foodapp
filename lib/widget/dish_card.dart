@@ -89,7 +89,25 @@ class DishCard extends StatelessWidget {
                         },
                       ),
                       Consumer<Cart>(
-                        builder: (_, val, __) => Text(
+                        builder: (context1, val, __) => Text(
+                          // val.cartList
+                          //     .takeWhile((element) {
+                          //       print(element.dishId);
+                          //       print(tableMenu.categoryDishes[index].dishId);
+                          //
+                          //       return element.dishId ==
+                          //           tableMenu.categoryDishes[index].dishId;
+                          //     })
+                          //     .toList()
+                          //     .length
+                          //     .toString(),
+                          // val.cartList
+                          //     .map((e) =>
+                          //         e.dishId ==
+                          //         tableMenu.categoryDishes[index].dishId)
+                          //     .toList()
+                          //     .length
+                          //     .toString(),
                           val.cartList
                               .map((e) =>
                                   e.dishId ==
@@ -125,7 +143,7 @@ class DishCard extends StatelessWidget {
           ),
           Container(
             child: Image.network(
-              "http://restaurants.unicomerp.net//images/Restaurant/1010000001/Item/Items/100000001.jpg",
+              "https://unsplash.com/photos/YsWRRHGEjsc/download?force=true&w=640",
               height: 110,
               width: 90,
             ),

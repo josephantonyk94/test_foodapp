@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:test_food_app/model/cart.dart';
-import 'package:test_food_app/model/table_menu_list.dart';
+import 'package:test_food_app/model/restaurant_provider.dart';
 import 'package:test_food_app/screens/home.dart';
 
 class LoginPage extends StatefulWidget {
@@ -56,8 +56,6 @@ class _LoginPageState extends State<LoginPage> {
                             providers: [
                               ChangeNotifierProvider(
                                   create: (context) => Cart()),
-                              ChangeNotifierProvider(
-                                  create: (context) => RestaurentList())
                             ],
                             child: HomePage(),
                           )),

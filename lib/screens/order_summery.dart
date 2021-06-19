@@ -3,19 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:test_food_app/model/cart.dart';
 
-class OrderSummery extends StatefulWidget {
-  OrderSummery();
-
-  @override
-  _OrderSummeryState createState() => _OrderSummeryState();
-}
-
-class _OrderSummeryState extends State<OrderSummery> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
+class OrderSummery extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(

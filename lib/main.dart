@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:test_food_app/model/api/restaurent.dart';
 import 'package:test_food_app/screens/home.dart';
 import 'package:test_food_app/screens/login.dart';
 
 import 'model/cart.dart';
-import 'model/table_menu_list.dart';
+import 'model/restaurant_provider.dart';
 
 void main() {
   runApp(MyApp());
@@ -22,7 +23,12 @@ class MyApp extends StatelessWidget {
       ),
       home: MultiProvider(
         providers: [
-          ChangeNotifierProvider(create: (context) => RestaurentList())
+          //ChangeNotifierProvider(create: (context) => RestaurentList()),
+          ChangeNotifierProvider<Cart>(create: (context) => Cart()),
+          FutureProvider<List<TableMenu>>(
+            create: (context) => RestaurantProvider().getRestaurant(),
+            initialData: [],
+          )
         ],
         child: HomePage(),
       ),

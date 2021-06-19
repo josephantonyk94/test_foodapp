@@ -17,8 +17,8 @@ class CartIcon extends StatelessWidget {
           size: 30,
         ),
         onPressed: () => Navigator.of(context).push(MaterialPageRoute(
-            builder: (context) => ChangeNotifierProvider<Cart>(
-                create: (context) => Cart(), child: OrderSummery()))),
+            builder: (context1) => ChangeNotifierProvider<Cart>.value(
+                value: context.watch<Cart>(), child: OrderSummery()))),
       ),
       Positioned(
         right: 5,
@@ -27,8 +27,8 @@ class CartIcon extends StatelessWidget {
           height: 20,
           width: 20,
           child: Consumer<Cart>(
-            builder: (cntxt, val, ___) => Text(
-              val.cartList.length.toString(),
+            builder: (context, val, ___) => Text(
+              val.cartLength.toString(),
             ),
           ),
           decoration: BoxDecoration(
